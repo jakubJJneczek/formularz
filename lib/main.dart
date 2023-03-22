@@ -1,3 +1,4 @@
+import 'dart:ffi';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -74,9 +75,11 @@ class _FormularzState extends State<Formularz> {
   final eController = TextEditingController();
   final hController = TextEditingController();
   final cController = TextEditingController();
-  String valueToDisplayCos = "";
-  String valueToDisplayEmail = "";
-  String valueToDisplayHaslo = "";
+
+  int valueToDisplayEmail = 0;
+  int valueToDisplayHaslo = 0;
+  int sumToDisplay = 0;
+
 
   @override
   Widget build(BuildContext context) {
@@ -88,7 +91,7 @@ class _FormularzState extends State<Formularz> {
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             Container(
-              margin: EdgeInsets.only(bottom: 5),
+              margin: const EdgeInsets.only(bottom: 5),
               child: TextFormField(
                 decoration: const InputDecoration(
                     border: OutlineInputBorder(
@@ -101,7 +104,7 @@ class _FormularzState extends State<Formularz> {
               ),
             ),
             Container(
-              margin: EdgeInsets.only(bottom: 10),
+              margin: const EdgeInsets.only(bottom: 10),
               child: TextFormField(
                 decoration: const InputDecoration(
                     border: OutlineInputBorder(
@@ -129,16 +132,17 @@ class _FormularzState extends State<Formularz> {
             ElevatedButton(
                 onPressed: () {
                   setState(() {
-                    valueToDisplayCos = cController.text;
-                    valueToDisplayEmail = eController.text;
-                    valueToDisplayHaslo = hController.text;
-                    valueToDisplayEmail += valueToDisplayHaslo;
+                    print(eController.text);
+                    print(hController.text);
+                    valueToDisplayEmail = int.parse(eController.text);
+                    valueToDisplayHaslo = int.parse(hController.text);
+                    int sum = valueToDisplayEmail * valueToDisplayHaslo;
+                    print(sum);
+                    sumToDisplay = sum;
                   });
                 },
                 child: const Text('Submit')),
-            Text(valueToDisplayEmail),
-            Text(valueToDisplayHaslo),
-            Text(valueToDisplayCos),
+              Text(sumToDisplay.toString())
           ],
         ),
       ],
