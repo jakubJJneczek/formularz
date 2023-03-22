@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
               decoration: BoxDecoration(
                 color: Colors.blue,
               ),
-              child: Text('chujek'),
+              child: Text('123'),
             ),
             ListTile(
               title: const Text('Item 1'),
@@ -46,7 +46,7 @@ class MyApp extends StatelessWidget {
             BottomNavigationBarItem(
                 icon: Icon(Icons.contact_page_sharp), label: "null"),
             BottomNavigationBarItem(
-                icon: Icon(Icons.safety_check_sharp), label: "chuj")
+                icon: Icon(Icons.safety_check_sharp), label: "1")
           ],
         ),
         floatingActionButton: FloatingActionButton(
@@ -55,7 +55,7 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           centerTitle: true,
 
-          title: Text("chuj"),
+          title: Text("1"),
         ),
         body: Formularz(),
       ),
